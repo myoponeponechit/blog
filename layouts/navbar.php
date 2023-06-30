@@ -10,6 +10,11 @@
             <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
             <!-- Core theme CSS (includes Bootstrap)-->
             <link href="css/styles.css" rel="stylesheet" />
+
+            <!--Bootstrap-->
+            <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+            <script src="../bootstrap/js/bootstrap.bundle.js"></script>
+            
         </head>
         <body>
             <!-- Responsive navbar-->
