@@ -11,8 +11,7 @@
                         </ol>
                         <div class="card mb-4">
                             <div class="card-header">
-                                <i class="fas fa-table me-1"></i>
-                                DataTable Example
+                                <span style="font-size:20px;font-weight:bold;"><i class="fas fa-table me-1"></i>&nbsp;Table List</span>
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">

@@ -47,8 +47,8 @@
 
                         <div class="card mb-4 m-3">
                             <div class="card-header">
-                                <span style="font-size:20px;font-weight:bold;"><i class="fa-regular fa-square-plus"></i>&nbsp;Post Create</span>
-                                <button class="btn btn-danger float-end">Cancel</button>
+                                <span style="font-size:20px;font-weight:bold;"><i class="fa-solid fa-folder-plus"></i>&nbsp;Post Create</span>
+                                <a href="posts.php"><button class="btn btn-danger float-end">Cancel</button></a>
                             </div>
                             <div class="card-body">
                                 <div class="form">

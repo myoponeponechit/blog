@@ -59,12 +59,20 @@
                             </a>
                             <div class="sb-sidenav-menu-heading">Addons</div>
                             <a class="nav-link" href="posts.php">
-                                <div class="sb-nav-link-icon"><i class="fa-solid fa-list-ul"></i></div>
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-folder-open"></i></div>
                                 Posts
                             </a>
                             <a class="nav-link" href="tables.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                 Tables
+                            </a>
+                            <a class="nav-link" href="users.php">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-users"></i></div>
+                                Users
+                            </a>
+                            <a class="nav-link" href="categories.php">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-list-ul"></i></div>
+                                Categories
                             </a>
                         </div>
                     </div>
