@@ -26,7 +26,7 @@
          $stmt->bindParam(':profile',$profile);
          $stmt->execute();
 
-        header("location: user_create.php");
+        header("location: users.php");
         exit;
 
     }else{

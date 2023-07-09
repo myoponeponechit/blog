@@ -11,7 +11,7 @@
          $stmt->bindParam(':name',$name);
          $stmt->execute();
 
-        header("location: category_create.php");
+        header("location: categories.php");
         exit;
 
     }else{

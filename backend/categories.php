@@ -1,12 +1,25 @@
 <?php
 
-    include "layouts/nav_sidebar.php";
     include "../dbconnect.php";
+    if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-    $sql = "SELECT * FROM categories";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute();
-    $categories = $stmt->fetchAll();
+        $id = $_POST['id'];
+        //var_dump($id);
+
+        $sql = "DELETE FROM categories WHERE id = :id";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':id',$id);
+        $stmt->execute();
+
+        header("location:categories.php");
+    
+    }else{
+
+        include "layouts/nav_sidebar.php";
+        $sql = "SELECT * FROM categories";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $categories = $stmt->fetchAll();
 
 ?>
 
@@ -46,8 +59,8 @@
                                             <td><?php echo $category['id']?></td>
                                             <td><?php echo $category['name']?></td>
                                             <td>
-                                                <button class="btn btn-warning">Edit</button>
-                                                <button class="btn btn-danger">Delete</button>
+                                                <a href="category_edit.php?id=<?=$category['id']?>" class="btn btn-warning">Edit</a>
+                                                <button type="button" class="btn btn-danger delete" data-bs-toggle="modal" data-bs-target="#deleteModal" data-id="<?= $category['id'] ?>">Delete</button>
                                             </td>
                                         </tr>
                                         <?php
@@ -61,9 +74,35 @@
 
                 </main>
 
+                <!-- Delete Modal -->
+                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="deleteModalLabel">Deleting.....</h1>
+                            <input type="hidden" name="">
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        <h3>Are you sure delete?</h3>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                            <form action="" method="post">
+                                <input type="hidden" name="id" id="del_id">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
 
 <?php
 
     include "layouts/footer.php";
+
+    }
 
 ?>

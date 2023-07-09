@@ -36,7 +36,7 @@
          $stmt->bindParam(':description',$description);
          $stmt->execute();
 
-          header("location: post_create.php");
+          header("location: posts.php");
           exit;
 
     }else{
