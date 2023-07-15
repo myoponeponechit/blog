@@ -1,4 +1,6 @@
 <?php 
+session_start();
+if(isset($_SESSION['user_id'])){
   include "../dbconnect.php";
 
 $id=$_GET['id'];
@@ -107,5 +109,9 @@ $id=$_GET['id'];
 
 <?php 
 include "layouts/footer.php";
+
+}else{
+    header("location:login.php");
+}
 
 ?>

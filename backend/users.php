@@ -1,6 +1,7 @@
 <?php 
  
- 
+ session_start();
+if(isset($_SESSION['user_id'])){
  include "../dbconnect.php";
  if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     
@@ -100,4 +101,7 @@
     include "layouts/footer.php";
 
     }
+}else{
+    header("location:login.php");
+}
 ?>

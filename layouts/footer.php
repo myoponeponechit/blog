@@ -28,7 +28,7 @@
                                         <?php
                                             foreach($categories as $category){
                                         ?>
-                                        <li><a href="#!"><?php echo $category['name']?></a></li>
+                                        <li><a href="index.php?cid=<?= $category['id'] ?>"><?php echo $category['name']?></a></li>
                                         <?php  
                                             }
                                         ?>

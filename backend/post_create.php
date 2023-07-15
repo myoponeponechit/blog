@@ -1,30 +1,32 @@
 <?php
-    
+    session_start();
+    if(isset($_SESSION['user_id'])){
     include "../dbconnect.php";
 
-    $sql = "SELECT * FROM categories";
-    $stmt = $conn->prepare($sql);
-    $stmt->execute();
-    $categories = $stmt->fetchAll();
+    
+        $sql = "SELECT * FROM categories";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $categories = $stmt->fetchAll();
 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST'){
+        if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-    $title = $_POST['title'];
-    $category_id = $_POST['category_id'];
-    $user_id = 2;
-    $description = $_POST['description'];
-    $photo_arr = $_FILES['photo'];
+        $title = $_POST['title'];
+        $category_id = $_POST['category_id'];
+        $user_id = $_SESSION['user_id'];
+        $description = $_POST['description'];
+        $photo_arr = $_FILES['photo'];
 
-    // echo "$title,$category_id,$description";
-    // print_r($photo_arr);
+        // echo "$title,$category_id,$description";
+        // print_r($photo_arr);
 
-    if(isset($photo_arr) && $photo_arr['size'] > 0){
-        $dir = 'images/';
-        $photo = $dir.$photo_arr['name'];    // images/photo_name.png
-        
-        $tmp_name = $photo_arr['tmp_name'];
-        move_uploaded_file($tmp_name,$photo);
-    };
+        if(isset($photo_arr) && $photo_arr['size'] > 0){
+            $dir = 'images/';
+            $photo = $dir.$photo_arr['name'];    // images/photo_name.png
+            
+            $tmp_name = $photo_arr['tmp_name'];
+            move_uploaded_file($tmp_name,$photo);
+        };
 
 
         $sql = "INSERT INTO posts (title,category_id,user_id,photo,description) VALUES(:title, :category, :user, :photo, :description)";
@@ -90,4 +92,7 @@
     include "layouts/footer.php";
 
     }
+}else{
+    header("location:login.php");
+}
 ?>

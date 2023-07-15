@@ -1,8 +1,7 @@
 <?php 
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
 
+    session_start();
+    if(isset($_SESSION['user_id'])){
     include "../dbconnect.php";
 
     $sql = "SELECT * FROM categories";
@@ -135,6 +134,9 @@ error_reporting(E_ALL);
 
     include "layouts/footer.php";
 
+}
+}else{
+    header("location:login.php");
 }
 
 ?>
