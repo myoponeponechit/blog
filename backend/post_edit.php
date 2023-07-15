@@ -25,7 +25,7 @@
     $upd_id = $_POST['id'];
     $title = $_POST['title'];
     $category_id = $_POST['category_id'];
-    $user_id = 2;
+    $user_id = $_SESSION['user_id']
     $description = $_POST['description'];
     $photo_arr = $_FILES['new_photo'];
     $old_photo = $_POST['photo'];
